@@ -68,9 +68,19 @@ def handle_jira_creation_chat(slack_app: App, event: dict, say) -> None:
         say: The say function from Slack Bolt
     """
     logger.info("=== Starting handle_jira_creation_chat ===")
-    # try:
-    #     # Extract event data
-    #     item = event.get("item", {})
+    try:
+        # Get the thread timestamp from the original message
+        item = event.get("item", {})
+        ts = item.get("ts")
+        
+        if not ts:
+            logger.warning("Missing thread timestamp")
+            return
+            
+        say("Complete ticket creation process at http://localhost:8501/", thread_ts=ts)
+        logger.info("=== Completed handle_jira_creation_chat ===")  
+    except Exception as e:
+        logger.error(f"Error in handle_jira_creation_chat: {str(e)}", exc_info=True)
 
 def handle_fraud_noc_ping(slack_app: App, event: dict, say) -> None:
     """
