@@ -65,7 +65,7 @@ def handle_reaction(event, say):
         # Handle david reaction
         if reaction == "david":
             handle_david_reaction(slack_app, event, say)
-        elif reaction == "thumbsup" and original_sender_id == "U08JWRHKQUW":
+        elif reaction == "-1":
             handle_jira_creation_chat(slack_app, event, say)
         # elif reaction == "trust-and-safety" and original_sender_id == "U08JWRHKQUW":
         #     handle_fraud_noc_ping(slack_app, event, say)
