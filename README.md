@@ -26,13 +26,8 @@ Required environment variables:
 
 - `SLACK_BOT_TOKEN`: Your Slack bot token
 - `SLACK_SIGNING_SECRET`: Your Slack app signing secret
-- `SLACK_APP_TOKEN`: Your Slack app token
-- `LLM_API_KEY`: Your LLM service API key
-- `LLM_API_URL`: Your LLM service API URL
 
 Optional environment variables:
-
-- `APP_ENV`: Application environment (default: development)
 - `PORT`: Application port (default: 8000)
 
 ## Running the Application
@@ -40,13 +35,3 @@ Optional environment variables:
 ```bash
 uvicorn src.main:app --reload
 ```
-
-## Development
-
-The project structure follows a modular design:
-
-- `src/main.py`: FastAPI application entry point
-- `src/config.py`: Environment variable configuration
-- `src/bot/`: Slack bot implementation and event handlers
-- `src/services/`: External service integrations (LLM)
-- `tests/`: Test files
