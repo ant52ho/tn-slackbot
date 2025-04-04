@@ -3,6 +3,10 @@ uvicorn==0.27.1
 slack-sdk==3.27.1
 python-dotenv==1.0.1
 httpx==0.26.0
+redis>=4.5.0
+langchain-core>=0.1.0
+langchain-openai>=0.0.5
+openai>=1.12.0
 
 
 # requirements for LOCAL dev setup and testing.
@@ -16,4 +20,3 @@ slack-sdk            # version taken from constraints (slack_sdk)               
 
 transformers
 torch
-streamlit
