@@ -20,3 +20,9 @@ slack-sdk            # version taken from constraints (slack_sdk)               
 
 transformers
 torch
+
+# Testing dependencies
+pytest==8.0.0
+pytest-asyncio==0.23.5
+pytest-mock==3.12.0
+pytest-cov==4.1.0
