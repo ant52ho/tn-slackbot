@@ -2,11 +2,6 @@ import random
 import os
 
 def get_random_names(filepath: str = None) -> list:
-    if filepath is None:
-        # Get the directory of the current file
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        filepath = os.path.join(current_dir, 'data', 'random_names.txt')
-    
     names = []
     try:
         with open(filepath, 'r') as file:

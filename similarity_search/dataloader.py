@@ -51,9 +51,7 @@ class ChatDataLoader:
         self.user_map: Dict[str, str] = {}
         self.channel_map: Dict[str, str] = {}
         self.user_group_map: Dict[str, str] = {}
-        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        random_names_path = os.path.join(project_root, 'similarity_search', 'data', 'random_names.txt')
-        self.random_names = get_random_names(random_names_path)
+        self.random_names = get_random_names('random_names.txt')
 
     def preprocess_training_data(self, file_path: str) -> pd.DataFrame:
         """
