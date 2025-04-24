@@ -41,3 +41,10 @@ If this doesn't work, inspect the program to ensure you are loading to the corre
 ```bash
 uvicorn main:fastapi_app --host 0.0.0.0 --port 8001 --reload
 ```
+
+# Testing
+
+1. Start the app according to the instructions above
+2. Enter the slackbot-test channel and type any message
+3. React 'mega' to any message
+4. Go through full Jira ticket creation flow
