@@ -14,7 +14,6 @@ Key Features:
 
 Environment Variables:
 - SERVER_PORT: Port number for the FastAPI server
-- APP_ENV: Application environment (e.g., "development", "production")
 - LOG_LEVEL: Logging level (e.g., "DEBUG", "INFO", "WARNING", "ERROR")
 
 Example:
@@ -29,13 +28,15 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from slackbot.bot import SlackBot
-from config import SERVER_PORT, APP_ENV, LOG_LEVEL
+from config import SERVER_PORT, LOG_LEVEL
 from typing import AsyncGenerator
+import sys
 
 # --- Configure Logging ---
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL, logging.DEBUG),   
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    stream=sys.stdout
 )
 logger = logging.getLogger(__name__)
 
@@ -98,12 +99,14 @@ async def root() -> dict[str, str]:
     """
     return {"status": "ok", "message": "TN Slackbot is running"}
 
-if __name__ == "__main__":
-    # Run the FastAPI application with uvicorn
-    # Enable auto-reload in non-production environments
-    uvicorn.run(
-        "main:fastapi_app",
-        host="0.0.0.0",
-        port=SERVER_PORT,
-        reload=(APP_ENV != "production")
-    )
+# if __name__ == "__main__":
+#     # Run the FastAPI application with uvicorn
+#     # Enable auto-reload in non-production environments
+#     uvicorn.run(
+#         "main:fastapi_app",
+#         host="0.0.0.0",
+#         port=SERVER_PORT,
+#         reload=True
+#     )
+
+# uvicorn main:fastapi_app --host 0.0.0.0 --port 8001 --reload

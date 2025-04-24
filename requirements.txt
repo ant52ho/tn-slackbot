@@ -1,28 +1,13 @@
-fastapi==0.109.2
-uvicorn==0.27.1
-slack-sdk==3.27.1
-python-dotenv==1.0.1
-httpx==0.26.0
-redis>=4.5.0
-langchain-core>=0.1.0
-langchain-openai>=0.0.5
-openai>=1.12.0
-
-
-# requirements for LOCAL dev setup and testing.
-# Use with Python 3.11.9 which is the latest tested version.
-# The requirements.txt file used in dev and prod MWAA envs is stored and updated via the infrastructure repository.
-# Package versioning should stay in sync with airflow published constraints as much as possible.
-
-# tndbo requirements not installed by airflow. Keep these in sync with versions in de_utils.
-slack-sdk            # version taken from constraints (slack_sdk)                      # only version I could find that would match with versioning above
-
-
-transformers
-torch
-
-# Testing dependencies
-pytest==8.0.0
-pytest-asyncio==0.23.5
-pytest-mock==3.12.0
-pytest-cov==4.1.0
+numpy
+fastapi
+uvicorn
+python-dotenv
+redis
+langchain-core
+langchain-openai
+openai
+slack-bolt
+jira
+pandas
+chromadb
+aiohttp

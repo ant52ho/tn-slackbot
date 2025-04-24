@@ -7,12 +7,12 @@ A Slack bot that reacts to emoji events using an LLM service.
 1. Clone the repository
 2. Create a virtual environment:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python3 -m venv .slackbot-env
+   source .slackbot-env/bin/activate  # On Windows: slackbot-env\Scripts\activate
    ```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 4. Copy `.env.example` to `.env` and fill in your environment variables:
    ```bash
@@ -20,18 +20,24 @@ A Slack bot that reacts to emoji events using an LLM service.
    ```
 5. Update the `.env` file with your Slack and LLM credentials
 
-## Environment Variables
-
-Required environment variables:
-
-- `SLACK_BOT_TOKEN`: Your Slack bot token
-- `SLACK_SIGNING_SECRET`: Your Slack app signing secret
-
-Optional environment variables:
-- `PORT`: Application port (default: 8000)
-
 ## Running the Application
 
 ```bash
-uvicorn src.main:app --reload
+docker compose up -d
+```
+
+# First time setup:
+
+## Loading the data (should take ~10 mins)
+
+```bash
+python3 utils/test_chat_dataloader.py
+```
+
+If this doesn't work, inspect the program to ensure you are loading to the correct location.
+
+## Run the main program
+
+```bash
+uvicorn main:fastapi_app --host 0.0.0.0 --port 8001 --reload
 ```

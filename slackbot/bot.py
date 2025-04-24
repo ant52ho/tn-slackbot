@@ -29,7 +29,7 @@ from typing import Dict, Any, Optional
 from slack_bolt.async_app import AsyncApp
 from slack_bolt.adapter.socket_mode.async_handler import AsyncSocketModeHandler
 from config import SLACK_BOT_TOKEN, SLACK_APP_TOKEN, SLACK_THREAD_FETCH_LIMIT, LOG_LEVEL
-from fraud_chat_bot.src.superFraudBotV2 import JiraTicketBot
+from fraud_chat_bot.superFraudBotV2 import JiraTicketBot
 
 class SlackBot:
     """
